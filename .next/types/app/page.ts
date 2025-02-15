@@ -1,4 +1,4 @@
-// File: C:\Users\RICKY DEY\OneDrive\Desktop\Interior_work\Interrior-AI\app\page.tsx
+// File: /home/debarpan/interio/Interior_work/app/page.tsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
