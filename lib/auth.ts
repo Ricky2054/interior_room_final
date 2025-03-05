@@ -1,4 +1,3 @@
-// filepath: /c:/Users/RICKY DEY/OneDrive/Desktop/Interior_work/Interrior-AI/lib/auth.ts
 import { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
@@ -9,6 +8,8 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     }),
   ],
+  // Add this explicitly to use the environment variable
+  secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: "/auth/signin",
   },
