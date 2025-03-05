@@ -12,7 +12,7 @@ app = FastAPI()
 # Configure CORS – adjust the allowed origin as needed.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # your Next.js frontend URL
+    allow_origins=["http://localhost:3000","https://interior-room-final.vercel.app/"],  # your Next.js frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
