@@ -3,20 +3,24 @@ services:
     name: interior-api
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn -k uvicorn.workers.UvicornWorker server_interior:app --bind 0.0.0.0:$PORT
+    startCommand: gunicorn -k uvicorn.workers.UvicornWorker server:app --bind 0.0.0.0:$PORT
     envVars:
       - key: STABILITY_API_KEY
         sync: false
       - key: FRONTEND_URL
         value: https://interior-work-15banssoa-ricky2054s-projects.vercel.app
+      - key: SERVER_TYPE
+        value: interior
 
   - type: web
     name: text2image-api
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn -k uvicorn.workers.UvicornWorker text2image:app --bind 0.0.0.0:$PORT
+    startCommand: gunicorn -k uvicorn.workers.UvicornWorker server:app --bind 0.0.0.0:$PORT
     envVars:
       - key: STABILITY_API_KEY
         sync: false
       - key: FRONTEND_URL
-        value: https://interior-work-15banssoa-ricky2054s-projects.vercel.app 
+        value: https://interior-work-15banssoa-ricky2054s-projects.vercel.app
+      - key: SERVER_TYPE
+        value: text2image 
