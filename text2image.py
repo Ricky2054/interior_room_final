@@ -12,7 +12,12 @@ app = FastAPI()
 # Configure CORS – adjust the allowed origin as needed.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000","https://interior-room-final.vercel.app/"],  # your Next.js frontend URL
+    allow_origins=[
+        "http://localhost:3000",
+        "https://interior-room-final.vercel.app",
+        "https://interior-work-15banssoa-ricky2054s-projects.vercel.app",
+        os.environ.get("FRONTEND_URL", "")
+    ],  # your Next.js frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -77,4 +82,6 @@ async def generate_image(
         raise HTTPException(status_code=response.status_code, detail=error_info)
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="localhost", port=8005)
+    port = int(os.environ.get("PORT", 8005))
+    host = os.environ.get("HOST", "0.0.0.0")
+    uvicorn.run(app, host=host, port=port)

@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "env": {
+    "STABILITY_API_KEY": "STABILITY_API_KEY_HERE",
+    "GOOGLE_CLIENT_ID": "GOOGLE_CLIENT_ID_HERE",
+    "GOOGLE_CLIENT_SECRET": "GOOGLE_CLIENT_SECRET_HERE",
+    "NEXTAUTH_SECRET": "NEXTAUTH_SECRET_HERE",
+    "NEXTAUTH_URL": "https://your-production-url.vercel.app"
+  }
+} 

@@ -12,7 +12,12 @@ app = FastAPI()
 # Configure CORS – adjust the allowed origin as needed.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000","https://interior-room-final.vercel.app/"],  # your Next.js frontend URL
+    allow_origins=[
+        "http://localhost:3000",
+        "https://interior-room-final.vercel.app",
+        "https://interior-work-15banssoa-ricky2054s-projects.vercel.app",
+        os.environ.get("FRONTEND_URL", "")
+    ],  # your Next.js frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -65,7 +70,7 @@ features = {
     "functional change": {
         "url": "https://api.stability.ai/v2beta/stable-image/control/style",
         "data": {
-            "prompt": "Transform the room’s function into a new theme while keeping its structure intact",
+            "prompt": "Transform the room's function into a new theme while keeping its structure intact",
             "output_format": "webp"
         },
         "media_type": "image/webp"
@@ -81,7 +86,7 @@ features = {
     "image quality enhancer": {
         "url": "https://api.stability.ai/v2beta/stable-image/upscale/fast",
         "data": {
-            "prompt": "Enhance the image’s resolution and clarity, making details crisper",
+            "prompt": "Enhance the image's resolution and clarity, making details crisper",
             "output_format": "webp"
         },
         "media_type": "image/webp"
@@ -100,7 +105,7 @@ async def transform_image(
     feature_info = features[feature]
     url = feature_info["url"]
     
-    # Copy the default payload so we don’t modify the shared mapping.
+    # Copy the default payload so we don't modify the shared mapping.
     payload = feature_info["data"].copy()
     
     # Append extra prompt details if provided.
@@ -136,4 +141,6 @@ async def transform_image(
         raise HTTPException(status_code=resp.status_code, detail=error_info)
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="localhost", port=8001)
+    port = int(os.environ.get("PORT", 8001))
+    host = os.environ.get("HOST", "0.0.0.0")
+    uvicorn.run(app, host=host, port=port)
