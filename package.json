@@ -3,11 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "fastapi-dev": "pip3 install -r requirements.txt && python3 server_interior.py && python3 text2image.py",
-    "dev": "next dev",
+    "dev": "next dev -p 3002",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start -p 3002",
+    "lint": "next lint",
+    "prepare-vercel": "node scripts/prepare-vercel.js",
+    "check-deployment": "node scripts/check-deployment-readiness.js",
+    "generate-vercel-env": "node scripts/generate-vercel-env.js",
+    "verify-deployment": "node scripts/verify-deployment.js",
+    "update-vercel-env": "node scripts/update-vercel-env.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",

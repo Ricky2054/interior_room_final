@@ -1,4 +1,4 @@
-// File: C:\Users\RICKY DEY\OneDrive\Desktop\interio\interio\Interior_work\app\api\generate\route.ts
+// File: C:\Users\RICKY DEY\OneDrive\Desktop\sorbo\interior_room_final\app\api\generate\route.ts
 import * as entry from '../../../../../app/api/generate/route.js'
 import type { NextRequest } from 'next/server.js'
 

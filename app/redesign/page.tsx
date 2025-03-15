@@ -70,7 +70,8 @@ export default function RedesignPage() {
     }
 
     try {
-      const response = await fetch("http://localhost:8001/transform", {
+      // Use the Next.js API route instead of the Python API
+      const response = await fetch("/api/transform", {
         method: "POST",
         body: formData,
       });
@@ -113,7 +114,8 @@ export default function RedesignPage() {
     formData.append("feature", "artistic");
 
     try {
-      const response = await fetch("http://localhost:8005/generate", {
+      // Use the Next.js API route instead of the Python API
+      const response = await fetch("/api/generate", {
         method: "POST",
         body: formData,
       });

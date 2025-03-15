@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google OAuth Redirect Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: #f9f9f9;
+    }
+    .button {
+      display: inline-block;
+      background-color: #4285F4;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+    .code {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 4px;
+      font-family: monospace;
+      overflow-x: auto;
+    }
+    .warning {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Google OAuth Redirect Test</h1>
+  
+  <div class="card">
+    <h2>Your Current Configuration</h2>
+    <p>This tool will help you test if your Google OAuth redirect URI is correctly configured.</p>
+    <p>Your application is configured to use:</p>
+    <ul>
+      <li>Port: <strong>3002</strong></li>
+      <li>Redirect URI: <strong>http://localhost:3002/api/auth/callback/google</strong></li>
+    </ul>
+  </div>
+  
+  <div class="card">
+    <h2>Test Your Redirect URI</h2>
+    <p>Click the button below to test if Google will accept your redirect URI:</p>
+    <a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=1070097756017-sgv3dbdrrvcvujfljgb1rtah0eekhhhu.apps.googleusercontent.com&redirect_uri=http://localhost:3002/api/auth/callback/google&response_type=code&scope=openid%20email%20profile&prompt=consent" class="button">Test Redirect URI</a>
+    <p><span class="warning">Note:</span> This is just a test. It will redirect you to Google's authentication page and then back to your application.</p>
+  </div>
+  
+  <div class="card">
+    <h2>How to Fix Redirect URI Mismatch</h2>
+    <p>If you're seeing a "redirect_uri_mismatch" error, follow these steps:</p>
+    <ol>
+      <li>Go to the <a href="https://console.cloud.google.com/apis/credentials" target="_blank">Google Cloud Console Credentials page</a></li>
+      <li>Find your OAuth 2.0 Client ID and click on it</li>
+      <li>Under "Authorized redirect URIs", add: <div class="code">http://localhost:3002/api/auth/callback/google</div></li>
+      <li>Click "Save"</li>
+      <li>Wait a few minutes for Google's systems to update</li>
+      <li>Try signing in again</li>
+    </ol>
+  </div>
+  
+  <div class="card">
+    <h2>Verify Your Application is Running</h2>
+    <p>Make sure your Next.js application is running on port 3002:</p>
+    <div class="code">npm run dev</div>
+    <p>You should see output indicating that the server is running on port 3002.</p>
+  </div>
+</body>
+</html> 

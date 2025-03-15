@@ -10,9 +10,6 @@ export const authOptions: NextAuthOptions = {
   ],
   // Add this explicitly to use the environment variable
   secret: process.env.NEXTAUTH_SECRET,
-  pages: {
-    signIn: "/auth/signin",
-  },
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
@@ -27,4 +24,6 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
   },
+  // Trust the NEXTAUTH_URL environment variable in production
+  useSecureCookies: process.env.NODE_ENV === "production",
 };
