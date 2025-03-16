@@ -5,7 +5,7 @@
   "framework": "nextjs",
   "regions": ["iad1"],
   "env": {
-    "NEXTAUTH_URL": "https://interior-room-final-cnelqkzrw-ricky2054s-projects.vercel.app"
+    "NEXTAUTH_URL": "https://interior-room-final-41k1tk9ov-ricky2054s-projects.vercel.app"
   },
   "headers": [
     {
