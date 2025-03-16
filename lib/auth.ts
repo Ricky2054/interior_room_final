@@ -26,4 +26,11 @@ export const authOptions: NextAuthOptions = {
   },
   // Trust the NEXTAUTH_URL environment variable in production
   useSecureCookies: process.env.NODE_ENV === "production",
+  // Debug mode to help diagnose issues
+  debug: true,
+  // Add custom pages for error handling
+  pages: {
+    error: '/auth-error', // Custom error page
+    signIn: '/signin', // Custom sign-in page
+  },
 };

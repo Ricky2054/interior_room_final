@@ -12,7 +12,8 @@
     "generate-vercel-env": "node scripts/generate-vercel-env.js",
     "verify-deployment": "node scripts/verify-deployment.js",
     "update-vercel-env": "node scripts/update-vercel-env.js",
-    "fix-git-push": "node scripts/fix-git-push.js"
+    "fix-git-push": "node scripts/fix-git-push.js",
+    "fix-oauth": "node scripts/fix-google-oauth.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
