@@ -13,6 +13,10 @@ const nextConfig = {
     },
     responseLimit: '10mb',
   },
+  env: {
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL || `https://${process.env.VERCEL_URL}`,
+  },
+  trailingSlash: false,
 };
 
 module.exports = nextConfig;

@@ -56,11 +56,16 @@ export function getFileExtension(mediaType: string): string {
 
 // Helper function to get the base URL for the API
 export function getBaseUrl(): string {
+  // First try NEXTAUTH_URL which should be set explicitly
+  if (process.env.NEXTAUTH_URL) {
+    return process.env.NEXTAUTH_URL;
+  }
+  
   // In production, use the VERCEL_URL environment variable
   if (process.env.VERCEL_URL) {
     return `https://${process.env.VERCEL_URL}`;
   }
   
   // In development, use the local URL
-  return process.env.NEXTAUTH_URL || 'http://localhost:3002';
+  return 'http://localhost:3002';
 } 
